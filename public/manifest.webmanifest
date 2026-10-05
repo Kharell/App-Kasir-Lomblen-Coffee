@@ -1,0 +1,19 @@
+{
+  "name": "Lomblen Cofe POS",
+  "short_name": "Lomblen POS",
+  "description": "Aplikasi kasir Lomblen Cofe",
+  "start_url": "/kasir",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f4f5",
+  "theme_color": "#2b1a11",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

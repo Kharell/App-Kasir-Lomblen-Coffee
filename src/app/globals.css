@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-zinc-100 text-zinc-900 antialiased;
+    /* Cegah zoom tidak sengaja saat input difokuskan di iOS */
+    font-size: 16px;
+  }
+
+  /* Fokus keyboard harus selalu terlihat (aksesibilitas) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-espresso-600 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Angka monetary: rata kanan, tabular agar kolom tidak bergeser */
+  .money {
+    @apply font-mono tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Sembunyikan scrollbar tapi tetap bisa scroll (filter kategori) */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Cetak struk: sembunyikan elemen UI, tampilkan hanya area struk */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #struk-area,
+  #struk-area * {
+    visibility: visible;
+  }
+  #struk-area {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  @page {
+    margin: 4mm;
+  }
+}

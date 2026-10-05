@@ -1,0 +1,80 @@
+Berikut adalah pembaruan lengkap dokumen rancangan proyek (Project Brief & Prompt) untuk aplikasi kasir "Lomblen Cofe". Saya telah menambahkan detail 4 peran pengguna (roles) beserta struktur folder proyek yang bersih dan terstandar untuk Next.js App Router.
+
+Silakan salin teks di bawah ini ke dalam catatan proyek Anda:
+
+📝 Project Brief & Prompt: Aplikasi POS "Lomblen Cofe"
+[INSTRUKSI UNTUK AI]
+Bertindaklah sebagai Senior Full Stack Software Engineer. Tugas Anda adalah memandu dan membantu saya menulis kode dengan praktik terbaik (best practices) industri. Berikan penjelasan kode yang bersih, terstruktur, mudah dikelola (maintainable), dan aman (secure).
+
+1. Deskripsi Proyek
+Membangun aplikasi Point of Sale (POS) / Kasir berbasis web responsif (Progressive Web App / PWA) untuk kedai kopi "Lomblen Cofe". Aplikasi menggunakan arsitektur Single Page Application (SPA) dengan Next.js agar transisi antarmuka berjalan instan tanpa reload.
+
+2. Tech Stack
+Bahasa: TypeScript 🟦
+
+Front-end & Back-end: Next.js (App Router) 🚀
+
+Styling: Tailwind CSS 🎨
+
+Database ORM/Driver: Mongoose 🍃
+
+Database: MongoDB 🗄️
+
+Payment Gateway: Midtrans / Xendit (QRIS, E-Wallet, Virtual Account) 💳
+
+3. ⚠️ PANDUAN UI/UX (STRICTLY NO "AI SLOP")
+Desain Profesional & Fungsional: Tolak mentah-mentah desain "AI slop" (elemen dekoratif berlebihan, shadow/glow yang tidak masuk akal, atau gradasi norak). UI harus clean, minimalis, dan berfokus murni pada kecepatan kasir bekerja.
+
+Touch-Friendly & Akurat: Tombol aksi utama (kategori, tambah pesanan, bayar) wajib memiliki ukuran minimal 44x44 pixel agar ramah layar sentuh (tablet/smartphone).
+
+Skema Warna Elegan: Latar belakang netral (putih/abu-abu terang) dengan teks gelap untuk keterbacaan tinggi. Gunakan satu warna aksen utama yang tegas (misalnya warna espresso atau cokelat kopi) untuk tombol penting.
+
+Layout SPA Adaptif:
+
+Tablet/Desktop: Layar terbagi dua (Kiri: Grid Menu, Kanan: Keranjang Pesanan sticky).
+
+Mobile: Grid menu memenuhi layar, keranjang muncul dari bawah (bottom sheet).
+
+4. Manajemen Peran Pengguna (User Roles)
+Aplikasi memiliki 4 level akses berbeda demi keamanan operasional:
+
+Kasir (Cashier) 🧑‍🍳: Melakukan transaksi penjualan, input pesanan, memproses pembayaran, dan mencetak struk.
+
+Manajer / Supervisor 👔: Mengawasi operasional harian, melakukan pembatalan pesanan (void), dan melihat laporan harian/shift.
+
+Admin / Owner 👑: Akses penuh untuk manajemen menu (tambah/edit/hapus produk), manajemen akun karyawan, dan laporan keuangan komprehensif.
+
+Pelayan (Waiter) 📝: Hanya bertugas menginput pesanan dari meja pelanggan (table ordering) tanpa hak akses pembayaran.
+
+5. Struktur Direktori Proyek (Project Structure)
+Struktur folder standar industri menggunakan Next.js App Router:
+
+Plaintext
+
+lomblen-pos/
+├── src/
+│   ├── app/                # Halaman dan API Routes (App Router)
+│   │   ├── api/            # Backend API endpoints (menu, transactions, auth)
+│   │   ├── dashboard/      # Panel Manajer & Owner (Laporan & Manajemen)
+│   │   ├── kasir/          # Halaman Utama POS (Antarmuka Kasir SPA)
+│   │   ├── layout.tsx      # Root layout aplikasi
+│   │   └── page.tsx        # Halaman Login / Pemilihan Peran
+│   ├── components/         # Komponen UI yang dapat digunakan kembali
+│   │   ├── pos/            # Komponen khusus kasir (MenuCard, CartDrawer, PaymentModal)
+│   │   └── ui/             # Komponen atomik (Button, Input, Badge)
+│   ├── models/             # Skema Mongoose (User, Menu, Transaction)
+│   ├── lib/                # Utilitas (Koneksi database MongoDB, helper functions)
+│   └── types/              # Definisi interface TypeScript
+├── public/                 # Aset statis (gambar menu, ikon)
+├── package.json
+└── tailwind.config.ts
+6. Fitur Utama (MVP)
+Katalog Menu & Keranjang: Memuat 20+ item (Kopi, Non-Kopi, Makanan Ringan, Makanan Berat) dengan kalkulasi harga instan.
+
+Sistem Pembayaran Omnichannel: Tunai (kalkulator kembalian otomatis) dan Pembayaran Digital (QRIS, E-Wallet, Virtual Account).
+
+Cetak Struk: Integrasi printer Bluetooth termal.
+
+Rancangan di atas sudah sangat komprehensif dan mencakup seluruh standar arsitektur perangkat lunak modern untuk sebuah kedai kopi.
+
+silahkan kerjakan aplikasi ini berbasis web dengan menggunakan next js 
